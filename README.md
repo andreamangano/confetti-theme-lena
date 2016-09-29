@@ -1,1 +1,2 @@
-# confetti-theme-lena
+# Confetti Theme "Lena"
+Theme for Confetti generator.
