@@ -1,0 +1,26 @@
+extends layout-slider
+
+block slide
+
+  .slide
+    .slide__state
+
+      //- Slide state
+      //-------------
+      // +slide-state(currentSlide, slideNav)
+
+    //- Slide title
+    //-------------
+    h1.slide__title!= currentSlide.title
+
+    //- Slide picture
+    //---------------
+    .slide__img-wrapper
+
+      img.slide__img(src="images/slides/#{currentSlide.picture}")
+
+    //- Slide description
+    //-------------------
+    if currentSlide.description
+
+      .slide__description!= currentSlide.description
