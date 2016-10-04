@@ -1,7 +1,8 @@
 name: Lena
-authors: Paul Romero & Andrea Mangano
+designer: Paul Romero
+developer: Andrea Mangano
 
-templateEngine: jade
+templateEngine: pug
 styleCompiler: sass
 
 # Theme config

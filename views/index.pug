@@ -1,0 +1,81 @@
+extends layout-base
+
+block page
+
+  .page-index
+
+    //- Language Navigation
+    //---------------------
+    if navigation.languages.length > 1
+
+      .page-index__languages
+
+        .page-index__languages-content
+
+          //- Language Selector
+          //-------------------
+          +language-selector(navigation.languages)
+
+    .page-index__header
+
+      //- Hero
+      //------
+      .hero
+
+        .hero__overlay
+
+        .hero__content
+
+          //- TODO: remove
+          .hero__icon-test
+
+          if authors
+
+            //- Authors
+            //---------
+            .hero__authors
+              each author, index in authors
+                +author-preview(author)
+
+          //- Category
+          //----------
+          if presentation.category
+            .hero__category!= presentation.category
+
+          //- Title
+          //-------
+          h1.hero__title!= presentation.title
+
+          //- Subtitle
+          //----------
+          if presentation.subtitle
+
+            h2.hero__subtitle!= presentation.subtitle
+
+          //- Cover
+          //-------
+          if presentation.cover
+
+            .hero__cover
+              a.hero__cover-link(href="#{navigation.slides[0].page}")
+                img.hero__cover-image(src="images/#{presentation.cover}")
+
+          //- Description
+          //-------------
+          if presentation.description
+
+            .hero__description
+              .hero__description-content!= presentation.description
+
+          //- Actions
+          //---------
+          .hero__actions
+            a.hero__actionButton(href="#{navigation.slides[0].page}")=translations.startPresentation
+
+    //- Contents
+    //----------
+    .page-index__table-contents
+
+      //- Table of Contents
+      //-------------------
+      +table-contents(navigation.slides)
