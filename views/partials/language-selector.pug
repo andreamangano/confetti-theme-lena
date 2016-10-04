@@ -1,0 +1,16 @@
+mixin language-selector(languages)
+
+  .language-selector
+
+    .language-selector__content
+
+      ul.language-selector__list
+
+        each language, index in languages
+
+          if index == 0
+            li.language-selector__item
+              a.language-selector__link(href="/")= language.label
+          else
+            li.language-selector__item
+              a.language-selector__link(href="#{language.lang}")= language.label
