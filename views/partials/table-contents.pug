@@ -1,11 +1,11 @@
-mixin table-contents(navigation)
+mixin table-contents(slides)
 
   .table-contents
     .table-contents__content
       h3.table-contents__title= translations.tableOfContents
       ul.table-contents__list
 
-        each item, index in navigation
+        each slide, index in slides
           li.table-contents__item
-            a.table-contents__number(href="#{item.page}")= index + 1
-            a.table-contents__link(href="#{item.page}")= item.label
+            a.table-contents__number(href=slide.url)= index + 1
+            a.table-contents__link(href=slide.url)= slide.title

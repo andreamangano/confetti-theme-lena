@@ -6,7 +6,7 @@ block page
 
     //- Language Navigation
     //---------------------
-    if navigation.languages.length > 1
+    if ( languages.count > 1 )
 
       .page-index__languages
 
@@ -14,65 +14,70 @@ block page
 
           //- Language Selector
           //-------------------
-          +language-selector(navigation.languages)
+          +language-selector(languages)
 
-    .page-index__header
 
-      //- Hero
-      //------
-      .hero
+      .page-index__header
 
-        .hero__overlay
+        //- Hero
+        //------
+        .hero
 
-        .hero__content
+          .hero__overlay
 
-          if authors
+          .hero__content
 
-            //- Authors
+            if authors
+
+              //- Authors
+              //---------
+              .hero__authors
+                each author, index in info.authors
+                  +author-preview(author)
+
+            //- Category
+            //----------
+            if info.categories
+
+              .hero__categories
+
+                each category in info.categories
+                  .hero__category!= category
+
+            //- Title
+            //-------
+            h1.hero__title!= info.title
+
+            //- Subtitle
+            //----------
+            if info.subtitle
+
+              h2.hero__subtitle!= info.subtitle
+
+            //- Cover
+            //-------
+            if info.cover
+
+              .hero__cover
+                a.hero__cover-link(href=slides[0].url)
+                  img.hero__cover-image(src="images/#{presentation.cover}")
+
+            //- Description
+            //-------------
+            if info.description
+
+              .hero__description
+                .hero__description-content!= info.description
+
+            //- Actions
             //---------
-            .hero__authors
-              each author, index in authors
-                +author-preview(author)
+            .hero__actions
+              a.hero__actionButton(href=slides[0].url)= translations.startPresentation
 
-          //- Category
-          //----------
-          if presentation.category
-            .hero__category!= presentation.category
+      //- Contents
+      //----------
+      .page-index__table-contents
 
-          //- Title
-          //-------
-          h1.hero__title!= presentation.title
-
-          //- Subtitle
-          //----------
-          if presentation.subtitle
-
-            h2.hero__subtitle!= presentation.subtitle
-
-          //- Cover
-          //-------
-          if presentation.cover
-
-            .hero__cover
-              a.hero__cover-link(href="#{navigation.slides[0].page}")
-                img.hero__cover-image(src="images/#{presentation.cover}")
-
-          //- Description
-          //-------------
-          if presentation.description
-
-            .hero__description
-              .hero__description-content!= presentation.description
-
-          //- Actions
-          //---------
-          .hero__actions
-            a.hero__actionButton(href="#{navigation.slides[0].page}")=translations.startPresentation
-
-    //- Contents
-    //----------
-    .page-index__table-contents
-
-      //- Table of Contents
-      //-------------------
-      +table-contents(navigation.slides)
+        //- Table of Contents
+        //-------------------
+        +table-contents(slides)

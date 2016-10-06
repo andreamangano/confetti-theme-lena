@@ -1,18 +1,18 @@
 doctype html
 
-html(lang="#{meta.language}")
+html(lang=info.lang.code)
 
   head
 
     //- Block title
     //-------------
     block meta_title
-      title!= meta.title
+      title!= info.title
 
     //- Description
     //-------------
-    if meta.description
-      meta(name="description" content=meta.description)
+    if info.description
+      meta(name="description" content=info.description)
 
     //- Viewport settings
     //-------------------
