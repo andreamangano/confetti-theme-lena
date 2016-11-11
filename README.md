@@ -1,2 +1,2 @@
 # Confetti Theme "Lena" (Work in progress)
-Theme for Confetti, generator of online speaker decks.
+Theme for Confetti, a tool for enriching your online speaker decks.
