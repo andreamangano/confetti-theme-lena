@@ -16,7 +16,6 @@ block page
           //-------------------
           +language-selector(languages)
 
-
       .page-index__header
 
         //- Hero
@@ -32,31 +31,31 @@ block page
               //- Authors
               //---------
               .hero__authors
-                each author, index in info.authors
+                each author, index in authors
                   +author-preview(author)
 
             //- Category
             //----------
-            if info.categories
+            if categories
 
               .hero__categories
 
-                each category in info.categories
+                each category in categories
                   .hero__category!= category
 
             //- Title
             //-------
-            h1.hero__title!= info.title
+            h1.hero__title!= title
 
             //- Subtitle
             //----------
-            if info.subtitle
+            if subtitle
 
-              h2.hero__subtitle!= info.subtitle
+              h2.hero__subtitle!= subtitle
 
             //- Cover
             //-------
-            if info.cover
+            if cover
 
               .hero__cover
                 a.hero__cover-link(href=slides[0].url)
@@ -64,10 +63,10 @@ block page
 
             //- Description
             //-------------
-            if info.description
+            if description
 
               .hero__description
-                .hero__description-content!= info.description
+                .hero__description-content!= description
 
             //- Actions
             //---------
